@@ -25,7 +25,7 @@ Example: Alex has spent 15 $, shared between himself, Barbara and Charlie, for a
 			- Barbara
 			- Charlie
 	- Taxi:
-		- payer: Antonio
+		- payer: Barbara
 		- date: 16/07/2014
 		- amount: 20
 		- people:
