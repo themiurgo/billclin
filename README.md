@@ -38,7 +38,7 @@ The BillClin output for this history file will be:
 	Charlie owes Alex 5.00
 
 
-# Caveats
+## Caveats
 
 - Obviously, you need to ensure that that each person has a unique name in the same history file.
 - Dates are not mandatory, but it's a good thing that you keep history neat. BillClin will raise a warning in case you just forgot.
