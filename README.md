@@ -46,7 +46,7 @@ For example, at the next `Spanish tapas` dinner, Barbara is bringing her boyfrie
 	- Spanish tapas:
 		- payer: Alex
 		- date: 24/07/2014
-		- amount: 40 
+		- amount: 50
 		- people:
 			- Alex
 			- Barbara: 2
@@ -54,7 +54,7 @@ For example, at the next `Spanish tapas` dinner, Barbara is bringing her boyfrie
 			
 Alex and Charlie are implicited given a weight of `1`.
 
-This mechanism can be used also to indicate the exact amount spent by everyone, for example:
+This mechanism can be used also to indicate the exact amount spent by everyone, for example we could write, equivantly:
 
 	- Spanish tapas:
 		- payer: Alex
