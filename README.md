@@ -37,6 +37,36 @@ The BillClin output for this history file will be:
 	Alex owes Barbara 5.00
 	Charlie owes Alex 5.00
 
+## Unevenly shared bills
+
+You have the possibility to share bills unevenly, by specifying a weight for each person in the history file. The default weight for each person is `1`.
+
+For example, at the next `Spanish tapas` dinner, Barbara is bringing her boyfriend Dan, and will offer him a dinner. Therefore, she would pay two quotes. Dan won't appear in the list of people, as he is not involved in the billing.
+
+	- Spanish tapas:
+		- payer: Alex
+		- date: 24/07/2014
+		- amount: 40 
+		- people:
+			- Alex
+			- Barbara: 2
+			- Charlie
+			
+Alex and Charlie are implicited given a weight of `1`.
+
+This mechanism can be used also to indicate the exact amount spent by everyone, for example:
+
+	- Spanish tapas:
+		- payer: Alex
+		- date: 24/07/2014
+		- amount: 50
+		- people:
+			- Alex: 12.50
+			- Barbara: 25
+			- Charlie: 12.50
+
+Note that BillClin **doesn't neither check or require** that weights total and the amount are the same. Every weight will be treated as a relative weight, w.r.t. the weights indicated for the other people.
+
 
 # Caveats
 
