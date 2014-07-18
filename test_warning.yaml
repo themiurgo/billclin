@@ -1,0 +1,14 @@
+- description: Sushi Dinner
+  payer: Alex
+  date: 16/07/2014
+  amount: 15
+  people:
+    - Alex
+    - Barbara
+    - Charlie
+- description: Taxi
+  payer: Barbara
+  amount: 20
+  people:
+    - Alex
+    - Barbara

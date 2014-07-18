@@ -71,8 +71,9 @@ Note that BillClin **neither checks nor requires** that weights total and the am
 
 # Caveats
 
-- Obviously, you need to ensure that that each person has a unique name in the same history file.
-- The fields `date` and `description` are not mandatory, but it's a good thing that you keep history neat. BillClin will raise a warning in case you just forgot or mispelled a field.
+- You need to ensure that that each person has a unique name in the same history file.
+- The fields `payer`, `amount` and `people` are required. BillClin will raise an error if you forgot one, it will skip that transaction and proceed as if it had not seen it.
+- The fields `date` and `description` are not required, but it's a good thing that you keep history neat. BillClin will raise a warning in case you just forgot or mispelled a field.
 
 
 ## Motivation
@@ -85,3 +86,4 @@ The library was created because BillPin had a serious history/totals inconsisten
 - Merge of multiple history files, with deduplication of transactions.
 - Helper script to append bills to the history file.
 - Support for multiple currencies.
+- Output coloring.

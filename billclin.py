@@ -13,6 +13,9 @@ D = decimal.Decimal
 TWOPLACES = D('0.01')
 
 class History(object):
+    warning_fields = set(['description', 'date'])
+    error_fields = set(['payer', 'people'])
+
     def __init__(self):
         # Keys in this dict are in the form (person1, person2)
         # person1 should always come alphabetically before person2
@@ -44,7 +47,17 @@ class History(object):
 
     def load(self, history):
         self.history = history
-        for transaction in history:
+        for i, transaction in enumerate(history):
+            fields = transaction.keys()
+            warning = self.warning_fields.difference(fields)
+            error = self.error_fields.difference(fields)
+            if warning:
+                print("WARNING: Field(s) '{}' in transaction #{} are missing."
+                    .format(', '.join(warning), i), file=sys.stderr)
+            if error:
+                print("ERROR: Field(s) '{}' in transaction #{} are missing. Skipping."
+                    .format(', '.join(error), i), file=sys.stderr)
+                continue
             self.add_transaction(transaction)
 
     def print_total(self):
