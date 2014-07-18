@@ -20,13 +20,25 @@ class History(object):
 
     def add_transaction(self, transaction):
         payer = transaction['payer']
-        per_person = D(D(transaction['amount']) / len(transaction['people']
-                )).quantize(TWOPLACES)
+        people = []
+        total_weight = D(0)
         for person in transaction['people']:
+            try:
+                person, weight = person.items()[0]
+            except AttributeError:
+                weight = 1
+            weight = D(weight)
+            people.append((person, weight))
+            total_weight += weight
+        total_weight = D(total_weight)
+        per_person = D(D(transaction['amount']) / total_weight)
+
+        for person, weight in people:
+            person_amount = (per_person * weight).quantize(TWOPLACES)
             if payer < person:
-                self.graph[(payer, person)] += per_person
+                self.graph[(payer, person)] += person_amount
             elif payer > person:
-                self.graph[(person, payer)] -= per_person
+                self.graph[(person, payer)] -= person_amount
 
     def load(self, history):
         self.history = history
