@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 #-*- coding: utf-8 -*-
 
+from __future__ import print_function
+
 import collections
 import decimal
 import yaml
@@ -52,8 +54,8 @@ class History(object):
             elif value < 0:
                 value *= -1
                 creditor, debitor = p2, p1
-            print "{} owes {} {}".format(debitor, creditor, value)
-        print ""
+            print("{} owes {} {}".format(debitor, creditor, value))
+        print("")
 
 if __name__ == "__main__":
     history_data = yaml.load(open(sys.argv[1]).read())
