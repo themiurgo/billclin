@@ -1,0 +1,8 @@
+- description: Spanish tapas
+  payer: Alex
+  date: 24/07/2014
+  amount: 50
+  people:
+    - Alex
+    - Barbara: 2
+    - Charlie
