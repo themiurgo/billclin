@@ -69,7 +69,7 @@ The weight mechanism can be used also to indicate the exact amount spent by ever
 Note that BillClin **neither checks nor requires** that weights total and the amount are the same. Every weight will be treated as a relative weight, w.r.t. the weights indicated for the other people.
 
 
-# Caveats
+## Caveats
 
 - You need to ensure that that each person has a unique name in the same history file.
 - The fields `payer`, `amount` and `people` are required. BillClin will raise an error if you forgot one, it will skip that transaction and proceed as if it had not seen it.
