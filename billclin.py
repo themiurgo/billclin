@@ -67,6 +67,8 @@ class History(object):
             elif value < 0:
                 value *= -1
                 creditor, debitor = p2, p1
+            else:
+                continue
             print("{} owes {} {}".format(debitor, creditor, value))
         print("")
 
