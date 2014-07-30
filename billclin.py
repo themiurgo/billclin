@@ -5,6 +5,7 @@ from __future__ import print_function
 
 import collections
 import decimal
+from xtermcolor import colorize
 import yaml
 import sys
 
@@ -60,7 +61,18 @@ class History(object):
                 continue
             self.add_transaction(transaction)
 
+    @property
+    def people(self):
+        people = set()
+        for person1, person2 in self.graph:
+            people.add(person1)
+            people.add(person2)
+        return people
+
     def print_total(self):
+        colors = {}
+        for i, person in enumerate(sorted(list(self.people))):
+            colors[person] = i+1
         for (p1, p2), value in self.graph.iteritems():
             if value > 0:
                 creditor, debitor = p1, p2
@@ -69,6 +81,8 @@ class History(object):
                 creditor, debitor = p2, p1
             else:
                 continue
+            debitor = colorize(debitor, ansi=colors[debitor])
+            creditor = colorize(creditor, ansi=colors[creditor])
             print("{} owes {} {}".format(debitor, creditor, value))
         print("")
 

@@ -10,6 +10,10 @@ The way it works is pretty simple: one input file (the history), one output (the
 2. `python billpin.py HISTORYFILE`.
 3. Read output to know the current credit/debt status.
 
+## Installation
+
+Depends on xtermcolor for color management.
+
 ## The history file
 
 The history file is a YAML formatted file that contains details of the various transactions. It is designed to be easily readable, flexible, yet formal.
